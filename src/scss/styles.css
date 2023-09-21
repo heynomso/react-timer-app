@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=Inclusive+Sans&family=Public+Sans:wght@300;400;700&family=Roboto&display=swap");
+* {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-family: "Inclusive Sans", sans-serif;
+  font-family: "Public Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+.countdown h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 50px;
+}
+.countdown .content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+  gap: 30px;
+}
+.countdown .box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  max-width: 150px;
+  background-color: sandybrown;
+}/*# sourceMappingURL=styles.css.map */
