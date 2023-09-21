@@ -17,8 +17,7 @@ const Countdown = ({ targetDate }) => {
   const [isTimeUp, setIsTimeUp] = useState(false);
 
   const playAudio = () => {
-    // Create an HTML5 audio element and play the audio when time is up
-    const audio = new Audio("src/assets/alarm.mp3"); // Replace with your audio file path
+    const audio = new Audio("src/assets/alarm.mp3"); 
     audio.play();
   };
 
@@ -35,13 +34,13 @@ const Countdown = ({ targetDate }) => {
         updatedTimeLeft.minutes === 0 &&
         updatedTimeLeft.seconds === 0
       ) {
-        clearInterval(timer); // Stop the timer when time is up
-        setIsTimeUp(true); // Set the flag to indicate time is up
-        playAudio(); // Call the function to play audio
+        clearInterval(timer); 
+        setIsTimeUp(true); 
+        playAudio(); 
 
-        // Change the text to "Time's Up" for 5 seconds
+        
         setTimeout(() => {
-          setIsTimeUp(false); // Reset the text back to "Countdown"
+          setIsTimeUp(false); 
         }, 5000);
       }
     };
@@ -49,7 +48,7 @@ const Countdown = ({ targetDate }) => {
     timer = setInterval(updateCountdown, 1000);
 
     return () => {
-      clearInterval(timer); // Ensure the interval is cleared when the component unmounts
+      clearInterval(timer); 
     };
   }, [targetDate]);
 

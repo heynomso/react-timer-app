@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux'; 
+import { setInputValue } from '../redux/actions'; 
 
-const Input = ({ onInputSubmit }) => {
-  const [inputValue, setInputValue] = useState("");
+const Input = ({onInputSubmit}) => {
+  const inputValue = useSelector((state) => state.inputValue);
+  const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+    dispatch(setInputValue(e.target.value));
   };
 
   const handleSubmit = () => {
