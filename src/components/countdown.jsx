@@ -6,10 +6,10 @@ const Countdown = ({ targetDate }) => {
 
   const getTimeLeft = () => {
     const totalTimeLeft = COUNTDOWN_TARGET - new Date();
-    const days = Math.floor(totalTimeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((totalTimeLeft / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((totalTimeLeft / (1000 * 60)) % 60);
-    const seconds = Math.floor((totalTimeLeft / 1000) % 60);
+    const days = Math.max(Math.floor(totalTimeLeft / (1000 * 60 * 60 * 24)), 0);
+    const hours = Math.max(Math.floor((totalTimeLeft / (1000 * 60 * 60)) % 24), 0);
+    const minutes = Math.max(Math.floor((totalTimeLeft / (1000 * 60)) % 60), 0);
+    const seconds = Math.max(Math.floor((totalTimeLeft / 1000) % 60), 0);
     return { days, hours, minutes, seconds };
   };
 
@@ -17,7 +17,7 @@ const Countdown = ({ targetDate }) => {
   const [isTimeUp, setIsTimeUp] = useState(false);
 
   const playAudio = () => {
-    const audio = new Audio("src/assets/alarm.mp3"); 
+    const audio = new Audio("src/assets/alarm.mp3");
     audio.play();
   };
 
@@ -34,13 +34,14 @@ const Countdown = ({ targetDate }) => {
         updatedTimeLeft.minutes === 0 &&
         updatedTimeLeft.seconds === 0
       ) {
-        clearInterval(timer); 
-        setIsTimeUp(true); 
-        playAudio(); 
+        clearInterval(timer);
+        setIsTimeUp(true);
+        playAudio();
 
-        
         setTimeout(() => {
-          setIsTimeUp(false); 
+          setIsTimeUp(false);
+          
+          document.getElementById("input-field").value = "";
         }, 5000);
       }
     };
@@ -48,7 +49,7 @@ const Countdown = ({ targetDate }) => {
     timer = setInterval(updateCountdown, 1000);
 
     return () => {
-      clearInterval(timer); 
+      clearInterval(timer);
     };
   }, [targetDate]);
 
@@ -58,28 +59,28 @@ const Countdown = ({ targetDate }) => {
       <div className="content">
         <div className="box">
           <div className="value">
-            <span>{timeLeft.days}</span>
+            <span>{timeLeft.days || 0}</span>
           </div>
           <span className="label">Days</span>
         </div>
 
         <div className="box">
           <div className="value">
-            <span>{timeLeft.hours}</span>
+            <span>{timeLeft.hours || 0}</span>
           </div>
           <span className="label">Hours</span>
         </div>
 
         <div className="box">
           <div className="value">
-            <span>{timeLeft.minutes}</span>
+            <span>{timeLeft.minutes || 0}</span>
           </div>
           <span className="label">Minutes</span>
         </div>
 
         <div className="box">
           <div className="value">
-            <span>{timeLeft.seconds}</span>
+            <span>{timeLeft.seconds || 0}</span>
           </div>
           <span className="label">Seconds</span>
         </div>

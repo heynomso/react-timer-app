@@ -27,11 +27,12 @@ const Input = ({onInputSubmit}) => {
   return (
     <div className="input">
       <input
+        id="input-field"
         type="datetime-local"
         value={inputValue}
         onChange={handleInputChange}
       />
-      <button onClick={handleSubmit}>Start Countdown</button>
+      <button id="button" onClick={handleSubmit}>Start Countdown</button>
     </div>
   );
 };
