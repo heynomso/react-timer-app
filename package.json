@@ -9,7 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "copy-audio": "cp src/assets/alarm.mp3 dist",
+    "copy-audio": "copy src\\assets\\alarm.mp3 dist\\assets\\alarm.mp3",
     "deploy": "npm run build && npm run copy-audio && gh-pages -d dist"
   },
   "dependencies": {
