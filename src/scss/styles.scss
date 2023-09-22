@@ -6,12 +6,14 @@
   font-family: 'Public Sans', sans-serif;
   font-family: 'Roboto', sans-serif;
   user-select: none;
+  box-sizing: border-box;
 }
 
 .countdown{
   h2{
     text-align: center;
-    margin-bottom: 20px;
+    margin-top: 0px;
+    margin-bottom: 10px;
     font-size: 50px;
   }
   .content{
@@ -31,10 +33,6 @@
     justify-content: center;
     height: 200px;
     max-width: 150px;
-    @media screen and (min-width: 550px) {
-      max-width: 200px;
-      height: 250px;
-    }
   }
 
   .value{
@@ -49,12 +47,6 @@
     height: 150px;
     position: relative;
     box-shadow: -2px 0px 5px 1px rgb(206, 182, 179);
-
-    @media screen and (min-width: 550px) {
-      font-size: 100px;
-      height: 200px;
-      width: 200px;
-    }
   }
 
   .label{
@@ -63,7 +55,6 @@
     letter-spacing: 4px;
     margin-top: 10px;
   }
-
 
 }
 
@@ -115,6 +106,39 @@
     
     &:hover{
       background-color: rgb(243, 178, 122);
+    }
+  }
+}
+
+@media only screen and (max-width: 680px){
+  .countdown{
+    .content{
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .box{
+      height: auto;
+    }
+
+    .value{
+      height: 100px;
+    }
+  }
+
+  .input{
+    flex-direction: column;
+    align-items: center;
+    
+    #input-field{
+      margin-bottom: 20px;
+    }
+
+    #button{
+      margin-bottom: 20px;
+      width: 190px;
+      height: 50px;
     }
   }
 }
