@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../scss/styles.scss";
+import alarmSound from "../assets/alarm.mp3"; 
+
 
 const Countdown = ({ targetDate }) => {
   const COUNTDOWN_TARGET = new Date(targetDate);
@@ -17,7 +19,7 @@ const Countdown = ({ targetDate }) => {
   const [isTimeUp, setIsTimeUp] = useState(false);
 
   const playAudio = () => {
-    const audio = new Audio("src/assets/alarm.mp3");
+    const audio = new Audio(alarmSound);
     audio.play();
   };
 
