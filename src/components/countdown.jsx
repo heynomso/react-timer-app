@@ -57,7 +57,7 @@ const Countdown = ({ targetDate }) => {
 
   return (
     <div className="countdown">
-      <h2>{isTimeUp ? "Time's Up" : "Countdown"}</h2>
+      <h2>{isTimeUp ? "Time's Up!" : "Countdown"}</h2>
       <div className="content">
         <div className="box">
           <div className="value">
